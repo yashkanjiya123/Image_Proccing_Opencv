@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Processing Result</title>
+</head>
+<body>
+    <h1>Image Processing Result</h1>
+    
+    <h2>Cropped Image</h2>
+    <img th:if="${croppedImage != null}" th:src="@{'data:image/' + ${imageFormat} + ';base64,' + ${croppedImage}}" alt="Cropped Image">
+
+    <h2>Crumbled Edges</h2>
+    <img th:if="${crumbledEdges != null}" th:src="@{'data:image/' + ${imageFormat} + ';base64,' + ${crumbledEdges}}" alt="Crumbled Edges">
+
+
+    <h2>Result</h2>
+    <p th:if="${isCrumbled}">The image is considered crumbled.</p>
+    <p th:unless="${isCrumbled}">The image is not considered crumbled.</p>
+
+    <a href="/">Back to Upload</a>
+</body>
+</html>
